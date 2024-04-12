@@ -26,21 +26,20 @@ const App = () => {
 
   return (
     <div>
+      <label htmlFor='search-bar'>Search Movies</label><br/>
       <input
         type="text"
+        id='search-bar'
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search for movies..."
       />
       <button onClick={handleSearch}>Search</button>
       {error && <p className="error">{error}</p>}
       <ul className="movie-list">
         {searchResults.map(movie => (
           <li key={movie.imdbID} className="movie">
-            <div>
               <h3>{movie.Title} ({movie.Year})</h3>
-            </div>
-            <img src={movie.Poster} alt={movie.Title} />
+              <img src={movie.Poster} alt={movie.Title} />
           </li>
         ))}
       </ul>
