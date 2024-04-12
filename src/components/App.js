@@ -34,17 +34,16 @@ const App = () => {
       />
       <button onClick={handleSearch}>Search</button>
       {error && <p className="error">{error}</p>}
-      <div className="movie-list">
+      <ul className="movie-list">
         {searchResults.map(movie => (
-          <div key={movie.imdbID} className="movie">
-            <img src={movie.Poster} alt={movie.Title} />
+          <li key={movie.imdbID} className="movie">
             <div>
-              <h3>{movie.Title}</h3>
-              <p>{movie.Year}</p>
+              <h3>{movie.Title} ({movie.Year})</h3>
             </div>
-          </div>
+            <img src={movie.Poster} alt={movie.Title} />
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
   // dsfsd
