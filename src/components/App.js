@@ -34,18 +34,32 @@ const App = () => {
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-      {error && <p className="error">{error}</p>}
-      <ul className="movie-list">
-        {searchResults.map(movie => (
-          <li key={movie.imdbID} className="movie">
-              <h3>{movie.Title} ({movie.Year})</h3>
-              <img src={movie.Poster} alt={movie.Title} />
-          </li>
-        ))}
+     
+      {
+        searchResults.length>0 ? (
+          <ul className="movie-list">
+            {searchResults.map(movie => (
+              <li key={movie.imdbID}>
+                  <h3>{movie.Title} ({movie.Year})</h3>
+                  <img src={movie.Poster} alt={movie.Title} />
+              </li>
+            ))}
       </ul>
-    </div>
+        ):(
+          <p>{error}</p>
+        )
+      }
+      </div>
   );
-  // dsfsd
+  // "Search": [
+  //   {
+  //       "Title": "Batman Begins",
+  //       "Year": "2005",
+  //       "imdbID": "tt0372784",
+  //       "Type": "movie",
+  //       "Poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+  //   },
+  // ]
 }
 
 
